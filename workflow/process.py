@@ -17,7 +17,7 @@ def parse_query_value(query_str):
     try:
         query_str = str(query_str).strip('"\' ')
         if query_str == 'now':
-            d = utcnow()
+            d = Delorean(timezone='Asia/Shanghai')
         else:
             # Parse datetime string or timestamp
             try:
