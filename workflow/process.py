@@ -2,7 +2,7 @@
 
 import alfred
 import calendar
-from delorean import utcnow, parse, epoch
+from delorean import delorean  utcnow, parse, epoch
 
 def process(query_str):
     """ Entry point """
@@ -21,7 +21,7 @@ def parse_query_value(query_str):
         else:
             # Parse datetime string or timestamp
             try:
-                d = epoch(float(query_str))
+                d = epoch(float(query_str)).shift('Asia/Shanghai')
             except ValueError:
                 d = parse(str(query_str))
     except (TypeError, ValueError):
